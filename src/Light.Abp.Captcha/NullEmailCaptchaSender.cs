@@ -5,7 +5,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace Light.Abp.Captcha
 {
-    public class NullEmailCaptchaSender : ISmsCaptchaSender, ISingletonDependency
+    public class NullEmailCaptchaSender : IEmailCaptchaSender, ISingletonDependency
     {
         public ILogger<DefaultCaptchaManager> Logger { get; set; }
         public NullEmailCaptchaSender()
