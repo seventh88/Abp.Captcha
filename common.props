@@ -8,7 +8,7 @@
     <Description>验证码模块</Description>
     <PackageProjectUrl>https://github.com/seventh88/Abp.Captcha</PackageProjectUrl>
     <RepositoryUrl>https://github.com/seventh88/Abp.Captcha</RepositoryUrl>
-    <PackageTags>abp module captcha</PackageTags>
+    <PackageTags>abp module captcha </PackageTags>
     <Company>Seventh88</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
