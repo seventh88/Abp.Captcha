@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.0-rc.1</Version>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Seventh88</Authors>
+    <Description>验证码模块</Description>
+    <RepositoryUrl>https://github.com/seventh88/Abp.Captcha</RepositoryUrl>
+    <PackageTags>abp module captcha</PackageTags>
+    <Company>Seventh88</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ConfigureAwait.Fody" Version="3.3.1" PrivateAssets="All" />
+    <PackageReference Include="Fody" Version="6.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
