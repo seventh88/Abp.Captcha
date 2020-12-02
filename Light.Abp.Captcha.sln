@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Light.Abp.Captcha", "src\Light.Abp.Captcha\Light.Abp.Captcha.csproj", "{629E7151-5C75-4AC9-B6FB-6AB1E6310F49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1AE34B6C-9826-4171-B305-BF40995678B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8F43DF7F-B309-4001-A8C0-D6C0EF3EC570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{629E7151-5C75-4AC9-B6FB-6AB1E6310F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629E7151-5C75-4AC9-B6FB-6AB1E6310F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629E7151-5C75-4AC9-B6FB-6AB1E6310F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629E7151-5C75-4AC9-B6FB-6AB1E6310F49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{629E7151-5C75-4AC9-B6FB-6AB1E6310F49} = {1AE34B6C-9826-4171-B305-BF40995678B6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E1E8011-CEA5-46B9-BC17-7596462D3FC3}
+	EndGlobalSection
+EndGlobal
