@@ -26,6 +26,7 @@ ABP 验证码模块
 ```
 
 ### 2.3 实现发送接口
+需要在项目中实现验证码发送（短信或邮件）的接口
 ```csharp
     public class AliyunSmsCaptchaSender: ISmsCaptchaSender
     {
@@ -68,7 +69,8 @@ ABP 验证码模块
           }
     }
 ```
-### 2.4 调用
+### 2.4 调用示例
+在AppService中，注入ICaptchaManager即可使用
 ```csharp
     public class CaptchaAppService : ApplicationService
     {
