@@ -2,10 +2,10 @@
 {
     public static class AbpCaptchaSettings
     {
-        private const string Prefix = "Captchas";
+        private const string Prefix = "AbpCaptchas";
 
         public const string EmailCaptchaExpireSeconds = Prefix + ".EmailCaptcha.ExpireSeconds";
 
-        public const string PhoneNumberCaptchaExpireSeconds = Prefix + ".PhoneNumberCaptcha.ExpireSeconds";
+        public const string SmsCaptchaExpireSeconds = Prefix + ".SmsCaptcha.ExpireSeconds";
     }
 }

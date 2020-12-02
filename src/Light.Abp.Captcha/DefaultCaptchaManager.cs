@@ -65,7 +65,7 @@ namespace Light.Abp.Captcha
 
             var receiverType = receiver.Contains("@") ? EnumReceiverType.Email : EnumReceiverType.PhoneNumber;
 
-            string expireSecondSettingName = receiverType == EnumReceiverType.Email ? AbpCaptchaSettings.EmailCaptchaExpireSeconds : AbpCaptchaSettings.PhoneNumberCaptchaExpireSeconds;
+            string expireSecondSettingName = receiverType == EnumReceiverType.Email ? AbpCaptchaSettings.EmailCaptchaExpireSeconds : AbpCaptchaSettings.SmsCaptchaExpireSeconds;
             int expireSeconds = await SettingProvider.GetAsync(expireSecondSettingName, 60);
 
             var captcha = new Captcha(type, code, receiver, receiverType, Clock.Now, expireSeconds, CurrentTenant.Id);
