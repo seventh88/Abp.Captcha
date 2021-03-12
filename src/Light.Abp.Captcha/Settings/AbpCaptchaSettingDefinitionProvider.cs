@@ -9,6 +9,7 @@ namespace Light.Abp.Captcha.Settings
             //Define your own settings here. Example:
             context.Add(new SettingDefinition(AbpCaptchaSettings.EmailCaptchaExpireSeconds));
             context.Add(new SettingDefinition(AbpCaptchaSettings.SmsCaptchaExpireSeconds));
+            context.Add(new SettingDefinition(AbpCaptchaSettings.CaptchaFrequencyLimitSeconds));
         }
     }
 }

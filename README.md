@@ -20,8 +20,9 @@ ABP 验证码模块
 
 ```json
   "Settings": {
-    "AbpCaptchas:EmailCaptcha.ExpireSeconds": 60,
-    "AbpCaptchas:SmsCaptcha.ExpireSeconds": 60
+    "AbpCaptchas:EmailCaptcha.ExpireSeconds": 600,//邮箱验证码过期时间
+    "AbpCaptchas:SmsCaptcha.ExpireSeconds": 300,//短信验证码过期时间
+    "AbpCaptchas:Captcha.FrequencyLimitSeconds": 60//请求频率限制
   },
 ```
 
