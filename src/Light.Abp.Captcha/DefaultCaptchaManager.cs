@@ -50,8 +50,13 @@ namespace Light.Abp.Captcha
 
         public virtual async Task BeforeSendAsync(string type, string receiver)
         {
-            var exist = await CaptchaStore.ExistValidAsync(type, receiver, CurrentTenant.Id);
-            if (exist)
+            var exist = await CaptchaStore.FindAsync(type, receiver, CurrentTenant.Id);
+            if (exist == null)
+            {
+                return;
+            }
+            int expireSeconds = await SettingProvider.GetAsync(AbpCaptchaSettings.CaptchaFrequencyLimitSeconds, 60);
+            if (exist.CreationTime.AddSeconds(expireSeconds) > Clock.Now)//检查是否超过请求频率限制
             {
                 throw new BusinessException(CaptchaErrorCodes.FrequencyLimit);
             }
@@ -83,8 +88,12 @@ namespace Light.Abp.Captcha
 
         public virtual async Task VerifyAsync(string type, string receiver, string code)
         {
-            var captcha = await CaptchaStore.FindAsync(type, receiver, code, CurrentTenant.Id);
+            var captcha = await CaptchaStore.FindAsync(type, receiver, CurrentTenant.Id);
             if (captcha == null)
+            {
+                throw new BusinessException(CaptchaErrorCodes.Error);
+            }
+            if (captcha.Code != code)
             {
                 throw new BusinessException(CaptchaErrorCodes.Error);
             }
