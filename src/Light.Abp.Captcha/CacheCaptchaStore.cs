@@ -25,22 +25,10 @@ namespace Light.Abp.Captcha
             return captcha;
         }
 
-        public virtual async Task<Captcha> FindAsync(string type, string receiver, string code, Guid? tenantId)
+        public virtual async Task<Captcha> FindAsync(string type, string receiver, Guid? tenantId)
         {
             var key = GetKey(type, receiver, tenantId);
-            var captcha = await Cache.GetAsync(key);
-            if (captcha != null && captcha.Code != code)
-            {
-                return null;
-            }
-            return captcha;
-        }
-
-        public virtual async Task<bool> ExistValidAsync(string type, string receiver, Guid? tenantId)
-        {
-            var key = GetKey(type, receiver, tenantId);
-            var captcha = await Cache.GetAsync(key);
-            return captcha != null && !captcha.IsUsed;
+            return await Cache.GetAsync(key);
         }
 
         public virtual async Task<Captcha> UsedAsync(Captcha captcha)

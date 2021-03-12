@@ -7,5 +7,7 @@
         public const string EmailCaptchaExpireSeconds = Prefix + ".EmailCaptcha.ExpireSeconds";
 
         public const string SmsCaptchaExpireSeconds = Prefix + ".SmsCaptcha.ExpireSeconds";
+
+        public const string CaptchaFrequencyLimitSeconds = Prefix + ".Captcha.FrequencyLimitSeconds";
     }
 }
