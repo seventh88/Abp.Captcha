@@ -13,11 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Localization\*.json" />
-    <EmbeddedResource Include="Localization\*.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Update="Fody" Version="6.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
