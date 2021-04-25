@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Settings;
+﻿using Volo.Abp.Localization;
+using Volo.Abp.Settings;
 
 namespace Light.Abp.Captcha.Settings
 {
@@ -6,10 +7,47 @@ namespace Light.Abp.Captcha.Settings
     {
         public override void Define(ISettingDefinitionContext context)
         {
-            //Define your own settings here. Example:
-            context.Add(new SettingDefinition(AbpCaptchaSettings.EmailCaptchaExpireSeconds));
-            context.Add(new SettingDefinition(AbpCaptchaSettings.SmsCaptchaExpireSeconds));
-            context.Add(new SettingDefinition(AbpCaptchaSettings.CaptchaFrequencyLimitSeconds));
+            context.Add(CreateAppVersionSettings());
+        }
+
+        protected SettingDefinition[] CreateAppVersionSettings()
+        {
+            return new SettingDefinition[]
+            {
+                new SettingDefinition(
+                        name: AbpCaptchaSettings.EmailCaptchaExpireSeconds,
+                        defaultValue: "600",
+                        displayName: L("DisplayName:EmailCaptchaExpireSeconds"),
+                        description: L("Description:EmailCaptchaExpireSeconds"),
+                        isVisibleToClients: true)
+                    .WithProviders(
+                        GlobalSettingValueProvider.ProviderName,
+                        TenantSettingValueProvider.ProviderName),
+
+                new SettingDefinition(
+                        name:AbpCaptchaSettings.SmsCaptchaExpireSeconds,
+                        defaultValue: "300",
+                        displayName: L("DisplayName:SmsCaptchaExpireSeconds"),
+                        description: L("Description:SmsCaptchaExpireSeconds"),
+                        isVisibleToClients: true)
+                    .WithProviders(
+                        GlobalSettingValueProvider.ProviderName,
+                        TenantSettingValueProvider.ProviderName),
+                new SettingDefinition(
+                        name:AbpCaptchaSettings.CaptchaFrequencyLimitSeconds,
+                        defaultValue: "60",
+                        displayName: L("DisplayName:CaptchaFrequencyLimitSeconds"),
+                        description: L("Description:CaptchaFrequencyLimitSeconds"),
+                        isVisibleToClients: true)
+                    .WithProviders(
+                        GlobalSettingValueProvider.ProviderName,
+                        TenantSettingValueProvider.ProviderName),
+            };
+        }
+
+        protected LocalizableString L(string name)
+        {
+            return LocalizableString.Create<AbpCaptchaResource>(name);
         }
     }
 }
