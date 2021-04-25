@@ -1,4 +1,5 @@
 ﻿using Volo.Abp.Caching;
+using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Settings;
 
@@ -11,6 +12,12 @@ namespace Light.Abp.Captcha
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Resources
+                    .Add<AbpCaptchaResource>("en")
+                    .AddVirtualJson("/Localization");
+            });
         }
     }
 }
