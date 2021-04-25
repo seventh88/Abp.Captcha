@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Localization;
+﻿using Light.Abp.Captcha.Localization;
+using Volo.Abp.Localization;
 using Volo.Abp.Settings;
 
 namespace Light.Abp.Captcha.Settings

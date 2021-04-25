@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Caching;
+﻿using Light.Abp.Captcha.Localization;
+using Volo.Abp.Caching;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Settings;
@@ -8,8 +9,8 @@ namespace Light.Abp.Captcha
 {
     [DependsOn(
         typeof(AbpSettingsModule),
-        typeof(AbpLocalizationModule),
         typeof(AbpVirtualFileSystemModule),
+        typeof(AbpLocalizationModule),
         typeof(AbpCachingModule))]
     public class AbpCaptchaModule : AbpModule
     {
