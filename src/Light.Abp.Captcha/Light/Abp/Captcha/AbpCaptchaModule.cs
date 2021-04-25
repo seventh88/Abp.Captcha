@@ -25,7 +25,7 @@ namespace Light.Abp.Captcha
             {
                 options.Resources
                     .Add<AbpCaptchaResource>("en")
-                    .AddVirtualJson("/Localization");
+                    .AddVirtualJson("/Light/Abp/Captcha/Localization");
             });
         }
     }
