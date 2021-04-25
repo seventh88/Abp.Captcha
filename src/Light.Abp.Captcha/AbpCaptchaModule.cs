@@ -8,11 +8,24 @@ namespace Light.Abp.Captcha
 {
     [DependsOn(
         typeof(AbpSettingsModule),
+        typeof(AbpLocalizationModule),
+        typeof(AbpVirtualFileSystemModule),
         typeof(AbpCachingModule))]
     public class AbpCaptchaModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.AddEmbedded<AbpCaptchaModule>();
+            });
+
+            Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Resources
+                    .Add<AbpCaptchaResource>("en")
+                    .AddVirtualJson("/Localization");
+            });
         }
     }
 }

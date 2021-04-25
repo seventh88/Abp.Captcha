@@ -1,0 +1,11 @@
+﻿{
+  "culture": "zh-Hant",
+  "texts": {
+    "DisplayName:EmailCaptchaExpireSeconds": "郵箱驗證碼過期時間（秒）",
+    "Description:EmailCaptchaExpireSeconds": "郵箱驗證碼過期時間（秒）",
+    "DisplayName:SmsCaptchaExpireSeconds": "短信驗證碼過期時間（秒）",
+    "Description:SmsCaptchaExpireSeconds": "短信驗證碼過期時間（秒）",
+    "DisplayName:CaptchaFrequencyLimitSeconds": "兩次發送間隔（秒）",
+    "Description:CaptchaFrequencyLimitSeconds": "兩次發送間隔（秒）"
+  }
+}
