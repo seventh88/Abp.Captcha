@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Light.Abp.Captcha.Settings;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using Volo.Abp;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.MultiTenancy;
@@ -13,6 +13,7 @@ namespace Light.Abp.Captcha
 {
     public class DefaultCaptchaManager : ICaptchaManager, ITransientDependency
     {
+        private readonly AbpCaptchaOptions _options;
         public IClock Clock { get; }
 
         public ICaptchaGenerator CaptchaGenerator { get; }
@@ -32,11 +33,13 @@ namespace Light.Abp.Captcha
         public DefaultCaptchaManager(IClock clock,
             ICaptchaGenerator captchaGenerator,
             ICurrentTenant currentTenant,
+            IOptions<AbpCaptchaOptions> options,
             ISettingProvider settingProvider,
             ISmsCaptchaSender smsCaptchaSender,
             IEmailCaptchaSender emailCaptchaSender,
             ICaptchaStore captchaStore)
         {
+            _options = options.Value;
             Clock = clock;
             CaptchaGenerator = captchaGenerator;
             CurrentTenant = currentTenant;
@@ -55,7 +58,7 @@ namespace Light.Abp.Captcha
             {
                 return;
             }
-            int expireSeconds = await SettingProvider.GetAsync(AbpCaptchaSettings.CaptchaFrequencyLimitSeconds, 60);
+            int expireSeconds = _options.CaptchaFrequencyLimitSeconds;
             if (exist.CreationTime.AddSeconds(expireSeconds) > Clock.Now)//检查是否超过请求频率限制
             {
                 throw new BusinessException(CaptchaErrorCodes.FrequencyLimit);
@@ -70,9 +73,7 @@ namespace Light.Abp.Captcha
 
             var receiverType = receiver.Contains("@") ? EnumReceiverType.Email : EnumReceiverType.PhoneNumber;
 
-            string expireSecondSettingName = receiverType == EnumReceiverType.Email ? AbpCaptchaSettings.EmailCaptchaExpireSeconds : AbpCaptchaSettings.SmsCaptchaExpireSeconds;
-            int expireSeconds = await SettingProvider.GetAsync(expireSecondSettingName, 60);
-
+            int expireSeconds = receiverType == EnumReceiverType.Email ? _options.EmailCaptchaExpireSeconds : _options.SmsCaptchaExpireSeconds;
             var captcha = new Captcha(type, code, receiver, receiverType, Clock.Now, expireSeconds, CurrentTenant.Id);
 
             bool sendResult = receiverType == EnumReceiverType.Email
