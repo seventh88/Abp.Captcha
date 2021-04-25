@@ -8,6 +8,7 @@ namespace Light.Abp.Captcha
 {
     [DependsOn(
         typeof(AbpSettingsModule),
+        typeof(AbpLocalizationModule),
         typeof(AbpVirtualFileSystemModule),
         typeof(AbpCachingModule))]
     public class AbpCaptchaModule : AbpModule
