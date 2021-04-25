@@ -47,7 +47,7 @@ namespace Light.Abp.Captcha.Settings
 
         protected LocalizableString L(string name)
         {
-            return LocalizableString.Create<AbpCaptchaResource>(name);
+            return LocalizableString.Create<DefaultResource>(name);
         }
     }
 }
