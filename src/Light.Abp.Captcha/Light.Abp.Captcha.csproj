@@ -8,24 +8,16 @@
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup> 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="5.0.5" />
-    <PackageReference Include="Volo.Abp" Version="4.2.1" />
-    <PackageReference Include="Volo.Abp.Caching" Version="4.2.1" />
-    <PackageReference Include="Volo.Abp.Settings" Version="4.2.1" />
-    <PackageReference Include="Volo.Abp.Localization" Version="4.2.1" />
-    <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="4.2.1" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="$(MicrosoftVersion)" />
+    <PackageReference Include="Volo.Abp" Version="$(AbpPackageVersion)" />
+    <PackageReference Include="Volo.Abp.Caching" Version="$(AbpPackageVersion)" />
+    <PackageReference Include="Volo.Abp.Settings" Version="$(AbpPackageVersion)" />
+    <PackageReference Include="Volo.Abp.Localization" Version="$(AbpPackageVersion)" />
+    <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="$(AbpPackageVersion)" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Light\Abp\Captcha\Localization\*.json" />
     <EmbeddedResource Include="Light\Abp\Captcha\Localization\*.json" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Update="Fody" Version="6.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
 </Project>
