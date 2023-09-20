@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <Version>7.1.1</Version>
+    <Version>7.3.0</Version>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Seventh88</Authors>
@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 <PropertyGroup>
-  <AbpPackageVersion>7.1.1</AbpPackageVersion>
-  <MicrosoftVersion>6.0.5</MicrosoftVersion>
+  <AbpPackageVersion>7.3.0</AbpPackageVersion>
+  <MicrosoftVersion>7.0.4</MicrosoftVersion>
 </PropertyGroup>
 </Project>
